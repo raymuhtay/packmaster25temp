@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="images/pack master 25.png" type="image/x-icon"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pack Master 25</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+      body {
+        background-image: url("images/beaningsback.png");
+        color: gold;
+        font-size: 20px;
+        font-family: "Oswald", system-ui;
+        font-weight: 700;
+      }
+      h1 {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pack Master 25</h1>
+      <div class="coinBalance"></div>
+      <div class="PackContainer">
+        <img
+          id="packImage"
+          src="images/beaningscrest.png"
+          alt="Pack Image"
+          style="max-width: 60%; height: auto"
+        />
+        <button id="openbeanPackButton">Open Beanings Pack (7,500000 Coins)</button>
+        <button id="backToPacks">Back</button>
+        <div id="buttonsContainer">
+          <button id="continueButton" style="display: none">Continue</button>
+          <button id="sendToInventoryButton" style="display: none">
+            Send to Inventory
+          </button>
+          <button id="restartButton" class="btn">Restart Game</button>
+
+        </div>
+        <div id="currentPlayer" class="current-player"></div>
+      </div>
+    </div>
+    <!-- Pack Results Area -->
+    <div id="packResults" class="pack-results">
+      <!-- Hidden Player Images (Used for Cloning) -->
+      <img id="messi" src="images/messi.png" alt="Lionel Messi" style="display: none" />
+      <img id="ronaldo" src="images/ronaldo.png" alt="Cristiano Ronaldo" style="display: none" />
+      <img id="mbappe" src="images/mbappe.png" alt="Kylian Mbappe" style="display: none" />
+      <img id="lewandowski" src="images/lewandowski.png" alt="Robert Lewandowski" style="display: none" />
+      <img id="debruyne" src="images/debruyne.png" alt="Kevin De Bruyne" style="display: none" />
+      <img id="neymar" src="images/neymar.png" alt="Neymar jr" style="display: none" />
+      <img id="ederson" src="images/ederson.png" alt="Ederson" style="display: none" />
+      <img id="frimpong" src="images/frimpong.png" alt="Frimpong" style="display: none" />
+      <img id="haaland" src="images/haaland.png" alt="Haaland" style="display: none" />
+      <img id="van-djik" src="images/van-djik.png" alt="Van-Djik" style="display: none" />
+      <img id="alisson" src="images/alisson.png" alt="Alisson" style="display: none" />
+      <img id="ruben-dias" src="images/ruben-dias.png" alt="Rúben Dias" style="display: none" />
+      <img id="bellingham" src="images/bellingham.png" alt="Jude Bellingham" style="display: none" />
+      <img id="rodri" src="images/rodri.png" alt="Rodri" style="display: none" />
+      <img id="theo-hernandez" src="images/theo-hernandez.png" alt="Theo Hernández" style="display: none" />
+      <img id="lucas-hernandez" src="images/lucas-hernandez.png" alt="Lucas Hernández" style="display: none" />
+      <img id="modric" src="images/modric.png" alt="Luka Modric" style="display: none" />
+      <img id="benzema" src="images/benzema.png" alt="Karim Benzema" style="display: none" />
+      <img id="salah" src="images/salah.png" alt="Mohamed Salah" style="display: none" />
+      <img id="neuer" src="images/neuer.png" alt="Manuel Neuer" style="display: none" />
+      <img id="kane" src="images/kane.png" alt="Harry Kane" style="display: none" />
+      <img id="foden" src="images/foden.png" alt="Phil Foden" style="display: none" />
+      <img id="lukaku" src="images/lukaku.png" alt="Romelu Lukaku" style="display: none" />
+      <img id="griezmann" src="images/griezmann.png" alt="Antoine Griezmann" style="display: none" />
+      <img id="carvajal" src="images/carvajal.png" alt="Carvajal" style="display: none" />
+      <img id="vardy" src="images/vardy.png" alt="Jamie Vardy" style="display: none" />
+      <img id="alaba" src="images/alaba.png" alt="David Alaba" style="display: none" />
+      <img id="jorginho" src="images/jorginho.png" alt="Jorginho" style="display: none" />
+      <img id="firmino" src="images/firmino.png" alt="Roberto Firmino" style="display: none" />
+      <img id="bruno-fernandes" src="images/bruno-fernandes.png" alt="Bruno Fernandes" style="display: none" />
+      <img id="son" src="images/son.png" alt="Son Heung-min" style="display: none" />
+      <img id="sterling" src="images/sterling.png" alt="Raheem Sterling" style="display: none" />
+      <img id="morata" src="images/morata.png" alt="Álvaro Morata" style="display: none" />
+      <img id="serge-gnabry" src="images/serge-gnabry.png" alt="Serge Gnabry" style="display: none" />
+      <img id="courtois" src="images/courtois.png" alt="Thibaut Courtois" style="display: none" />
+      <img id="vinicius" src="images/vinicius.png" alt="Vinícius Júnior" style="display: none" />
+      <img id="kimmich" src="images/kimmich.png" alt="Joshua Kimmich" style="display: none" />
+      <img id="mane" src="images/mane.png" alt="Sadio Mané" style="display: none" />
+      <img id="rashford" src="images/rashford.png" alt="Marcus Rashford" style="display: none" />
+      <img id="oblak" src="images/oblak.png" alt="Jan Oblak" style="display: none" />
+      <img id="b-silva" src="images/b-silva.png" alt="Bernardo Silva" style="display: none" />
+      <img id="casemiro" src="images/casemiro.png" alt="Casemiro" style="display: none" />
+      <img id="cancelo" src="images/cancelo.png" alt="João Cancelo" style="display: none" />
+      <img id="hakimi" src="images/hakimi.png" alt="Achraf Hakimi" style="display: none" />
+      <img id="dias" src="images/dias.png" alt="Rúben Dias" style="display: none" />
+      <img id="valverde" src="images/valverde.png" alt="Federico Valverde" style="display: none" />
+      <img id="alexander-arnold" src="images/alexander-arnold.png" alt="Trent Alexander-Arnold" style="display: none" />
+      <img id="rodrygo" src="images/rodrygo.png" alt="Rodrygo" style="display: none" />
+      <img id="mendes" src="images/mendes.png" alt="Nuno Mendes" style="display: none" />
+      <img id="yamal" src="images/yamal.png" alt="Lamine Yamal" style="display: none" />
+      <img id="acerbi" src="images/acerbi.png" alt="Acerbi" style="display: none" />
+      <img id="akanji" src="images/akanji.png" alt="Akanji" style="display: none" />
+      <img id="alvarez" src="images/alvarez.png" alt="Alvarez" style="display: none" />
+      <img id="araujo" src="images/araujo.png" alt="Araujo" style="display: none" />
+      <img id="baltimore" src="images/baltimore.png" alt="Baltimore" style="display: none" />
+      <img id="barella" src="images/barella.png" alt="Barella" style="display: none" />
+      <img id="batlle" src="images/batlle.png" alt="Batlle" style="display: none" />
+      <img id="boattin" src="images/boattin.png" alt="Boattin" style="display: none" />
+      <img id="bonmati" src="images/bonmati.png" alt="Bonmati" style="display: none" />
+      <img id="bounou" src="images/bounou.png" alt="Bounou" style="display: none" />
+      <img id="bright" src="images/bright.png" alt="Bright" style="display: none" />
+      <img id="bronze" src="images/bronze.png" alt="Bronze" style="display: none" />
+      <img id="buchanan" src="images/buchanan.png" alt="Buchanan" style="display: none" />
+      <img id="cancelo" src="images/cancelo.png" alt="Cancelo" style="display: none" />
+      <img id="caruso" src="images/caruso.png" alt="Caruso" style="display: none" />
+      <img id="chawinga" src="images/chawinga.png" alt="Chawinga" style="display: none" />
+      <img id="chiesa" src="images/chiesa.png" alt="Chiesa" style="display: none" />
+      <img id="daly" src="images/daly.png" alt="Daly" style="display: none" />
+      <img id="debinha" src="images/debinha.png" alt="Debinha" style="display: none" />
+      <img id="dejong" src="images/dejong.png" alt="Dejong" style="display: none" />
+      <img id="dembele" src="images/dembele.png" alt="Dembele" style="display: none" />
+      <img id="depaul" src="images/depaul.png" alt="Depaul" style="display: none" />
+      <img id="diani" src="images/diani.png" alt="Diani" style="display: none" />
+      <img id="diaz" src="images/diaz.png" alt="Diaz" style="display: none" />
+      <img id="diogo-costa" src="images/diogo-costa.png" alt="Diogo-Costa" style="display: none" />
+      <img id="donnaruma" src="images/donnaruma.png" alt="Donnaruma" style="display: none" />
+      <img id="doorsoun" src="images/doorsoun.png" alt="Doorsoun" style="display: none" />
+      <img id="dovbyk" src="images/dovbyk.png" alt="Dovbyk" style="display: none" />
+      <img id="earps" src="images/earps.png" alt="Earps" style="display: none" />
+      <img id="foord" src="images/foord.png" alt="Foord" style="display: none" />
+      <img id="frohms" src="images/frohms.png" alt="Frohms" style="display: none" />
+      <img id="gabriel" src="images/gabriel.png" alt="Gabriel" style="display: none" />
+      <img id="geyoro" src="images/geyoro.png" alt="Geyoro" style="display: none" />
+      <img id="girljames" src="images/girljames.png" alt="Girljames" style="display: none" />
+      <img id="grealish" src="images/grealish.png" alt="Grealish" style="display: none" />
+      <img id="greenwood" src="images/greenwood.png" alt="Greenwood" style="display: none" />
+      <img id="grimaldo" src="images/grimaldo.png" alt="Grimaldo" style="display: none" />
+      <img id="guijarro" src="images/guijarro.png" alt="Guijarro" style="display: none" />
+      <img id="hansen" src="images/hansen.png" alt="Hansen" style="display: none" />
+      <img id="hasegawa" src="images/hasegawa.png" alt="Hasegawa" style="display: none" />
+      <img id="hegerberg" src="images/hegerberg.png" alt="Hegerberg" style="display: none" />
+      <img id="hemp" src="images/hemp.png" alt="Hemp" style="display: none" />
+      <img id="hendrich" src="images/hendrich.png" alt="Hendrich" style="display: none" />
+      <img id="horan" src="images/horan.png" alt="Horan" style="display: none" />
+      <img id="huth" src="images/huth.png" alt="Huth" style="display: none" />
+      <img id="iago-aspas" src="images/iago-aspas.png" alt="Iago-Aspas" style="display: none" />
+      <img id="ilestedt" src="images/ilestedt.png" alt="Ilestedt" style="display: none" />
+      <img id="irene" src="images/irene.png" alt="Irene" style="display: none" />
+      <img id="isak" src="images/isak.png" alt="Isak" style="display: none" />
+      <img id="janssen" src="images/janssen.png" alt="Janssen" style="display: none" />
+      <img id="jota" src="images/jota.png" alt="Jota" style="display: none" />
+      <img id="kante" src="images/kante.png" alt="Kante" style="display: none" />
+      <img id="kerr" src="images/kerr.png" alt="Kerr" style="display: none" />
+      <img id="kobel" src="images/kobel.png" alt="Kobel" style="display: none" />
+      <img id="koulibaly" src="images/koulibaly.png" alt="Koulibaly" style="display: none" />
+      <img id="kounde" src="images/kounde.png" alt="Kounde" style="display: none" />
+      <img id="kvaratskhelia" src="images/kvaratskhelia.png" alt="Kvaratskhelia" style="display: none" />
+      <img id="l-martinez" src="images/l-martinez.png" alt="L-Martinez" style="display: none" />
+      <img id="lawrence" src="images/lawrence.png" alt="Lawrence" style="display: none" />
+      <img id="lesommer" src="images/lesommer.png" alt="Lesommer" style="display: none" />
+      <img id="little" src="images/little.png" alt="Little" style="display: none" />
+      <img id="maddison" src="images/maddison.png" alt="Maddison" style="display: none" />
+      <img id="mahrez" src="images/mahrez.png" alt="Mahrez" style="display: none" />
+      <img id="maignan" src="images/maignan.png" alt="Maingan" style="display: none" />
+      <img id="majri" src="images/majri.png" alt="Majri" style="display: none" />
+      <img id="mamardashvili" src="images/mamardashvili.png" alt="Mamardashvili" style="display: none" />
+      <img id="mane" src="images/mane.png" alt="Mane" style="display: none" />
+      <img id="marquinhos" src="images/marquinhos.png" alt="Marquinhos" style="display: none" />
+      <img id="mbock" src="images/mbock.png" alt="Mbock" style="display: none" />
+      <img id="mccabe" src="images/mccabe.png" alt="McCabe" style="display: none" />
+      <img id="mead" src="images/mead.png" alt="Mead" style="display: none" />
+      <img id="mendy" src="images/mendy.png" alt="Mendy" style="display: none" />
+      <img id="merino" src="images/merino.png" alt="Merino" style="display: none" />
+      <img id="miedema" src="images/miedema.png" alt="Miedema" style="display: none" />
+      <img id="milink ovic-savic" src="images/milinkovic-savic.png" alt="Milinkovic-Savic" style="display: none" />
+      <img id="militao" src="images/militao.png" alt="Militao" style="display: none" />
+      <img id="morgan" src="images/morgan.png" alt="Morgan" style="display: none" />
+      <img id="neves" src="images/neves.png" alt="Neves" style="display: none" />
+      <img id="nnadozie" src="images/nnadozie.png" alt="Nnadozie" style="display: none" />
+      <img id="oberdorf" src="images/oberdorf.png" alt="Oberdorf" style="display: none" />
+      <img id="olmo" src="images/olmo.png" alt="Olmo" style="display: none" />
+      <img id="openda" src="images/openda.png" alt="Openda" style="display: none" />
+      <img id="osimhen" src="images/osimhen.png" alt="Osimhen" style="display: none" />
+      <img id="pajor" src="images/pajor.png" alt="Pajor" style="display: none" />
+      <img id="palacios" src="images/palacios.png" alt="Palacios" style="display: none" />
+      <img id="palhinha" src="images/palhinha.png" alt="Palhinha" style="display: none" />
+      <img id="palmer" src="images/palmer.png" alt="Palmer" style="display: none" />
+      <img id="pavard" src="images/pavard.png" alt="Pavard" style="display: none" />
+      <img id="putellas" src="images/putellas.png" alt="Putellas" style="display: none" />
+      <img id="reiten" src="images/reiten.png" alt="Reiten" style="display: none" />
+      <img id="remiro" src="images/remiro.png" alt="Remiro" style="display: none" />
+      <img id="renard" src="images/renard.png" alt="Renard" style="display: none" />
+      <img id="rice" src="images/rice.png" alt="Rice" style="display: none" />
+      <img id="rodman" src="images/rodman.png" alt="Rodman" style="display: none" />
+      <img id="rolfo" src="images/rolfo.png" alt="Rolfo" style="display: none" />
+      <img id="romero" src="images/romero.png" alt="Romero" style="display: none" />
+      <img id="roord" src="images/roord.png" alt="Roord" style="display: none" />
+      <img id="rudiger" src="images/rudiger.png" alt="Rudiger" style="display: none" />
+      <img id="russo" src="images/russo.png" alt="Russo" style="display: none" />
+      <img id="sabitzer" src="images/sabitzer.png" alt="Sabitzer" style="display: none" />
+      <img id="saliba" src="images/saliba.png" alt="Saliba" style="display: none" />
+      <img id="sane" src="images/sane.png" alt="Sane" style="display: none" />
+      <img id="sauerbrunn" src="images/sauerbrunn.png" alt="Sauerbrunn" style="display: none" />
+      <img id="schlotterbeck" src="images/schlotterbeck.png" alt="Schlotterbeck" style="display: none" />
+      <img id="schuller" src="images/schuller.png" alt="Schuller" style="display: none" />
+      <img id="shaw" src="images/shaw.png" alt="Shaw" style="display: none" />
+      <img id="sheridan" src="images/sheridan.png" alt="Sheridan" style="display: none" />
+      <img id="sommer" src="images/sommer.png" alt="Sommer" style="display: none" />
+      <img id="swanson" src="images/swanson.png" alt="Swanson" style="display: none" />
+      <img id="tah" src="images/tah.png" alt="Tah" style="display: none" />
+      <img id="tchouameni" src="images/tchouameni.png" alt="Tchouameni" style="display: none" />
+      <img id="terstegen" src="images/terstegen.png" alt="Terstegen" style="display: none" />
+      <img id="toone " src="images/toone.png" alt="Toone" style="display: none" />
+      <img id="viggosdottir" src="images/viggosdottir.png" alt="Viggosdottir" style="display: none" />
+      <img id="vlahovic" src="images/vlahovic.png" alt="Vlahovic" style="display: none" />
+      <img id="walsh" src="images/walsh.png" alt="Walsh" style="display: none" />
+      <img id="watkins" src="images/watkins.png" alt="Watkins" style="display: none" />
+      <img id="weir" src="images/weir.png" alt="Weir" style="display: none" />
+      <img id="white" src="images/white.png" alt="White" style="display: none" />
+      <img id="williamson" src="images/williamson.png" alt="Williamson" style="display: none" />
+      <img id="wirtz" src="images/wirtz.png" alt="Wirtz" style="display: none" />
+      <img id="xhaka" src="images/xhaka.png" alt="Xhaka" style="display: none" />
+      <img id="zinsberger" src="images/zinsberger.png" alt="Zinsberger" style="display: none" />
+      <img id="totw-vini" src="images/totw-vini.png" alt="Vinicus TOTW" style="display: none" />
+      <img id="blaise_matuidi" src="images/blaise_matuidi.png" alt="Blaise Matuidi" style="display: none" />
+      <img id="celia_sassic" src="images/celia_sassic.png" alt="Celia Šašić" style="display: none" />
+      <img id="eden_hazard" src="images/eden_hazard.png" alt="Eden Hazard" style="display: none" />
+      <img id="fara_williams" src="images/fara_williams.png" alt="Fara Williams" style="display: none" />
+      <img id="guti" src="images/guti.png" alt="Guti" style="display: none" />
+      <img id="jaap_stam" src="images/jaap_stam.png" alt="Jaap Stam" style="display: none" />
+      <img id="jamie_carragher" src="images/jamie_carragher.png" alt="Jamie Carragher" style="display: none" />
+      <img id="laura_georges" src="images/laura_georges.png" alt="Laura Georges" style="display: none" />
+      <img id="maicon" src="images/maicon.png" alt="Maicon" style="display: none" />
+      <img id="marek_hamsik" src="images/marek_hamsik.png" alt="Marek Hamšík" style="display: none" />
+      <img id="mohammed_noor" src="images/mohammed_noor.png" alt="Mohammed Noor" style="display: none" />
+      <img id="tim_howard" src="images/tim_howard.png" alt="Tim Howard" style="display: none" />
+      <img id="ze_roberto" src="images/ze_roberto.png" alt="Zé Roberto" style="display: none" />
+      <img id="abedi" src="images/abedi.png" alt="Abedi" style="display: none" />
+      <img id="beasley" src="images/beasley.png" alt="Beasley" style="display: none" />
+      <img id="berbatov" src="images/berbatov.png" alt="Berbatov" style="display: none" />
+      <img id="bompastor" src="images/bompastor.png" alt="Bompastor" style="display: none" />
+      <img id="brolin" src="images/brolin.png" alt="Brolin" style="display: none" />
+      <img id="cahill" src="images/cahill.png" alt="Cahill" style="display: none" />
+      <img id="campos" src="images/campos.png" alt="Campos" style="display: none" />
+      <img id="capdevilla" src="images/capdevilla.png" alt="Capdevilla" style="display: none" />
+      <img id="carragher" src="images/carragher.png" alt="Carragher" style="display: none" />
+      <img id="carvalho" src="images/carvalho.png" alt="Carvalho" style="display: none" />
+      <img id="cole" src="images/cole.png" alt="Cole" style="display: none" />
+      <img id="cordoba" src="images/cordoba.png" alt="Cordoba" style="display: none" />
+      <img id="crouch" src="images/crouch.png" alt="Crouch" style="display: none" />
+      <img id="dempsey" src="images/dempsey.png" alt="Dempsey" style="display: none" />
+      <img id="di_natale" src="images/di_natale.png" alt="Di Natale" style="display: none" />
+      <img id="donovan" src="images/donovan.png" alt="Donovan" style="display: none" />
+      <img id="dudek" src="images/dudek.png" alt="Dudek" style="display: none" />
+      <img id="forlan" src="images/forlan.png" alt="Forlan" style="display: none" />
+      <img id="francescoli" src="images/francescoli.png" alt="Francescoli" style="display: none" />
+      <img id="futre" src="images/futre.png" alt="Futre" style="display: none" />
+      <img id="georges" src="images/georges.png" alt="Georges" style="display: none" />
+      <img id="ginola" src="images/ginola.png" alt="Ginola" style="display: none" />
+      <img id="giuly" src="images/giuly.png" alt="Giuly" style="display: none" />
+      <img id="gomez" src="images/gomez.png" alt="Gomez" style="display: none" />
+      <img id="govou" src="images/govou.png" alt="Govou" style="display: none" />
+      <img id="hazard" src="images/hazard.png" alt="Hazard" style="display: none" />
+      <img id="jaber" src="images/jaber.png" alt="Jaber" style="display: none" />
+      <img id="kanu" src="images/kanu.png" alt="Kanu" style="display: none" />
+      <img id="keane" src="images/keane.png" alt="Keane" style="display: none" />
+      <img id="kewell" src="images/kewell.png" alt="Kewell" style="display: none" />
+      <img id="king" src="images/king.png" alt="King" style="display: none" />
+      <img id="kohler" src="images/kohler.png" alt="Kohler" style="display: none" />
+      <img id="kompany" src="images/kompany.png" alt="Kompany" style="display: none" />
+      <img id="kuyt" src="images/kuyt.png" alt="Kuyt" style="display: none" />
+      <img id="litmanen" src="images/litmanen.png" alt="Litmanen" style="display: none" />
+      <img id="lizarazu" src="images/lizarazu.png" alt="Lizarazu" style="display: none" />
+      <img id="lucio" src="images/lucio.png" alt="Lucio" style="display: none" />
+      <img id="marchisio" src="images/marchisio.png" alt="Marchisio" style="display: none" />
+      <img id="marquez" src="images/marquez.png" alt="Marquez" style="display: none" />
+      <img id="mascherano" src="images/mascherano.png" alt="Mascherano" style="display: none" />
+      <img id="milito" src="images/milito.png" alt="Milito" style="display: none" />
+      <img id="morientes" src="images/morientes.png" alt="Morientes" style="display: none" />
+      <img id="mostovoi" src="images/mostovoi.png" alt="Mostovoi" style="display: none" />
+      <img id="nakata" src="images/nakata.png" alt="Nakata" style="display: none" />
+      <img id="okocha" src="images/okocha.png" alt="Okocha" style="display: none" />
+      <img id="owairan" src="images/owairan.png" alt="Owairan" style="display: none" />
+      <img id="papin" src="images/papin.png" alt="Papin" style="display: none" />
+      <img id="ramires" src="images/ramires.png" alt="Ramires" style="display: none" />
+      <img id="ricken" src="images/ricken.png" alt="Ricken" style="display: none" />
+      <img id="rosicky" src="images/rosicky.png" alt="Rosicky" style="display: none" />
+      <img id="rui" src="images/rui.png" alt="Rui" style="display: none" />
+      <img id="scott" src="images/scott.png" alt="Scott" style="display: none" />
+      <img id="smolarek" src="images/smolarek.png" alt="Smolarek" style="display: none" />
+      <img id="sneijder" src="images/sneijder.png" alt="Sneijder" style="display: none" />
+      <img id="solsjkaer" src="images/solsjkaer.png" alt="Solsjkaer" style="display: none" />
+      <img id="tevez" src="images/tevez.png" alt="Tevez" style="display: none" />
+      <img id="toure" src="images/toure.png" alt="Toure" style="display: none" />
+      <img id="vialli" src="images/vialli.png" alt="Vialli" style="display: none" />
+      <img id="voller" src="images/voller.png" alt="Voller" style="display: none" />
+      <img id="totw-vini" src="images/totw-vini.png" alt="Vinicus TOTW" style="display: none" />
+      <img id="pele" src="images/pele.png" alt="Pelé" style="display: none" />
+      <img id="ronaldinho" src="images/ronaldinho.png" alt="Ronaldinho" style="display: none" />
+      <img id="zidane" src="images/zidane.png" alt="Zinedine Zidane" style="display: none" />
+      <img id="cruyff" src="images/cruyff.png" alt="Johan Cruyff" style="display: none" />
+      <img id="yashin" src="images/yashin.png" alt="Yashin" style="display: none" />
+      <img id="best" src="images/best.png" alt="George Best" style="display: none" />
+      <img id="maldini" src="images/maldini.png" alt="Paolo Maldini" style="display: none" />
+      <img id="gullit" src="images/gullit.png" alt="Ruud Gullit" style="display: none" />
+      <img id="van-basten" src="images/van-basten.png" alt="Marco van Basten" style="display: none" />
+      <img id="eusebio" src="images/eusebio.png" alt="Eusébio" style="display: none" />
+      <img id="puskas" src="images/puskas.png" alt="Puskas" style="display: none" />
+      <img id="roberto-carlos" src="images/roberto-carlos.png" alt="Roberto Carlos" style="display: none" />
+      <img id="hierro" src="images/hierro.png" alt="Fernando Hierro" style="display: none" />
+      <img id="socrates" src="images/socrates.png" alt="Sócrates" style="display: none" />
+      <img id="schmeichel" src="images/schmeichel.png" alt="Peter Schmeichel" style="display: none" />
+      <img id="charlton" src="images/charlton.png" alt="Bobby Charlton" style="display: none" />
+      <img id="del-piero" src="images/del-piero.png" alt="Alessandro Del Piero" style="display: none" />
+      <img id="hamm" src="images/hamm.png" alt="mia Hamm" style="display: none" />
+      <img id="zico" src="images/zico.png" alt="Zico" style="display: none" />
+      <img id="bergkamp" src="images/bergkamp.png" alt="Dennis Bergkamp" style="display: none" />
+      <img id="r9" src="images/r9.png" alt="R9" style="display: none" />
+      <img id="garrincha" src="images/garrincha.png" alt="Garrincha" style="display: none" />
+      <img id="muller" src="images/muller.png" alt="Gerd Müller" style="display: none" />
+      <img id="puskas" src="images/puskas.png" alt="Ferenc Puskás" style="display: none" />
+      <img id="baggio" src="images/baggio.png" alt="Roberto Baggio" style="display: none" />
+      <img id="baresi" src="images/baresi.png" alt="Franco Baresi" style="display: none" />
+      <img id="buffon" src="images/buffon.png" alt="Gianluigi Buffon" style="display: none" />
+      <img id="cafu" src="images/cafu.png" alt="Cafú" style="display: none" />
+      <img id="carlos-alberto" src="images/carlos_alberto.png" alt="Carlos Alberto" style="display: none" />
+      <img id="henry" src="images/henry.png" alt="Thierry Henry" style="display: none" />
+      <img id="sawa" src="images/sawa.png" alt="Homare Sawa" style="display: none" />
+      <img id="abily" src="images/abily.png" alt="Camille Abily" style="display: none" />
+      <img id="bergkamp" src="images/bergkamp.png" alt="Dennis Bergkamp" style="display: none" />
+      <img id="casillas" src="images/casillas.png" alt="Iker Casillas" style="display: none" />
+      <img id="matthaus" src="images/matthaus.png" alt="Lothar Matthäus" style="display: none" />
+      <img id="miyama" src="images/miyama.png" alt="Aya Miyama" style="display: none" />
+      <img id="moore" src="images/moore.png" alt="Bobby Moore" style="display: none" />
+      <img id="pirlo" src="images/pirlo.png" alt="Andrea Pirlo" style="display: none" />
+      <img id="raul" src="images/raul.png" alt="Raúl" style="display: none" />
+      <img id="rivaldo" src="images/rivaldo.png" alt="Rivaldo" style="display: none" />
+      <img id="schelin" src="images/schelin.png" alt="Lotta Schelin" style="display: none" />
+      <img id="xavi" src="images/xavi.png" alt="Xavi" style="display: none" />
+      <img id="butragueno" src="images/butragueno.png" alt="Emilio Butragueño" style="display: none" />
+      <img id="cannavaro" src="images/cannavaro.png" alt="Fabio Cannavaro" style="display: none" />
+      <img id="cantona" src="images/cantona.png" alt="Eric Cantona" style="display: none" />
+      <img id="drogba" src="images/drogba.png" alt="Didier Drogba" style="display: none" />
+      <img id="dalglish" src="images/dalglish.png" alt="Kenny Dalglish" style="display: none" />
+      <img id="eto" src="images/eto.png" alt="Samuel Eto'o" style="display: none" />
+      <img id="figo" src="images/figo.png" alt="Luís Figo" style="display: none" />
+      <img id="lahm" src="images/lahm.png" alt="Philipp Lahm" style="display: none" />
+      <img id="sanchez" src="images/sanchez.png" alt="Hugo Sanchez" style="display: none" />
+      <img id="kaka" src="images/kaka.png" alt="Kaká" style="display: none" />
+      <img id="lineker" src="images/lineker.png" alt="Gary Lineker" style="display: none" />
+      <img id="nesta" src="images/nesta.png" alt="Alessandro Nesta" style="display: none" />
+      <img id="van-nistelrooy" src="images/van_nistelrooy.png" alt="Ruud van Nistelrooy" style="display: none" />
+      <img id="puyol" src="images/puyol.png" alt="Carles Puyol" style="display: none" />
+      <img id="schmeichel" src="images/schmeichel.png" alt="Peter Schmeichel" style="display: none" />
+      <img id="shearer" src="images/shearer.png" alt="Alan Shearer" style="display: none" />
+      <img id="smith" src="images/smith.png" alt="Kelly Smith" style="display: none" />
+      <img id="socrates" src="images/socrates.png" alt="Sócrates" style="display: none" />
+      <img id="stoichkov" src="images/stoichkov.png" alt="Hristo Stoichkov" style="display: none" />
+      <img id="zanetti" src="images/zanetti.png" alt="Javier Zanetti" style="display: none" />
+      <img id="bale" src="images/bale.png" alt="Gareth Bale" style="display: none" />
+      <img id="beckham" src="images/beckham.png" alt="David Beckham" style="display: none" />
+      <img id="blanc" src="images/blanc.png" alt="Laurent Blanc" style="display: none" />
+      <img id="cech" src="images/cech.png" alt="Petr Čech" style="display: none" />
+      <img id="desailly" src="images/desailly.png" alt="Marcel Desailly" style="display: none" />
+      <img id="ferdinand" src="images/ferdinand.png" alt="Rio Ferdinand" style="display: none" />
+      <img id="gerrard" src="images/gerrard.png" alt="Steven Gerrard" style="display: none" />
+      <img id="hagi" src="images/hagi.png" alt="Gheorghe Hagi" style="display: none" />
+      <img id="hierro" src="images/hierro.png" alt="Fernando Hierro" style="display: none" />
+      <img id="klose" src="images/klose.png" alt="Miroslav Klose" style="display: none" />
+      <img id="koeman" src="images/koeman.png" alt="Ronald Koeman" style="display: none" />
+      <img id="laudrup" src="images/laudrup.png" alt="Michael Laudrup" style="display: none" />
+      <img id="nedved" src="images/nedved.png" alt="Pavel Nedvěd" style="display: none" />
+      <img id="owen" src="images/owen.png" alt="Michael Owen" style="display: none" />
+      <img id="pichon" src="images/pichon.png" alt="Marinette Pichon" style="display: none" />
+      <img id="ribery" src="images/ribery.png" alt="Franck Ribéry" style="display: none" />
+      <img id="riquelme" src="images/riquelme.png" alt="Juan Román Riquelme" style="display: none" />
+      <img id="rooney" src="images/rooney.png" alt="Wayne Rooney" style="display: none" />
+      <img id="scholes" src="images/scholes.png" alt="Paul Scholes" style="display: none" />
+      <img id="schweinsteiger" src="images/schweinsteiger.png" alt="Bastian Schweinsteiger" style="display: none" />
+      <img id="shevchenko" src="images/shevchenko.png" alt="Andriy Shevchenko" style="display: none" />
+      <img id="van-der-sar" src="images/van_der_sar.png" alt="Edwin van der Sar" style="display: none" />
+      <img id="van-persie" src="images/van_persie.png" alt="Robin van Persie" style="display: none" />
+      <img id="viera" src="images/viera.png" alt="Patrick Viera" style="display: none" />
+      <img id="barnes" src="images/barnes.png" alt="John Barnes" style="display: none" />
+      <img id="kluivert" src="images/kluivert.png" alt="Patrick Kluivert" style="display: none" />
+      <img id="lampard" src="images/lampard.png" alt="Frank Lampard" style="display: none" />
+      <img id="makelele" src="images/makelele.png" alt="Claude Makélélé" style="display: none" />
+      <img id="petit" src="images/petit.png" alt="Emmanuel Petit" style="display: none" />
+      <img id="pires" src="images/pires.png" alt="Robert Pires" style="display: none" />
+      <img id="rijkaard" src="images/rijkaard.png" alt="Frank Rijkaard" style="display: none" />
+      <img id="rush" src="images/rush.png" alt="Ian Rush" style="display: none" />
+      <img id="suker" src="images/suker.png" alt="Davor Šuker" style="display: none" />
+      <img id="vidic" src="images/vidic.png" alt="Nemanja Vidić" style="display: none" />
+      <img id="wright" src="images/wright.png" alt="Ian Wright" style="display: none" />
+      <img id="alonso" src="images/alonso.png" alt="Xabi Alonso" style="display: none" />
+      <img id="zola" src="images/zola.png" alt="Gianfranco Zola" style="display: none" />
+      <img id="cole" src="images/cole.png" alt="Ashley Cole" style="display: none" />
+      <img id="crespo" src="images/crespo.png" alt="Hernán Crespo" style="display: none" />
+      <img id="essien" src="images/essien.png" alt="Michael Essien" style="display: none" />
+      <img id="gattuso" src="images/gattuso.png" alt="Gennaro Gattuso" style="display: none" />
+      <img id="hernandez" src="images/hernandez.png" alt="Luis Hernández" style="display: none" />
+      <img id="keane" src="images/keane.png" alt="Roy Keane" style="display: none" />
+      <img id="larsson" src="images/larsson.png" alt="Henrik Larsson" style="display: none" />
+      <img id="veron" src="images/veron.png" alt="Juan Sebastián Verón" style="display: none" />
+      <img id="abily" src="images/abily.png" alt="Camille Abily" style="display: none" />
+      <img id="smith" src="images/smith.png" alt="Kelly Smith" style="display: none" />
+      <img id="zico" src="images/zico.png" alt="Zico" style="display: none" />
+      <img id="raul" src="images/raul.png" alt="Raul" style="display: none" />
+      <img id="pirlo" src="images/pirlo.png" alt="Andrea Pirlo" style="display: none" />
+      <img id="henry" src="images/henry.png" alt="Thierry Henry" style="display: none" />
+      <img id="carlos-alberto" src="images/carlos-alberto.png" alt="Carlos Alberto" style="display: none" />
+      <img id="eusebio" src="images/eusebio.png" alt="Eusebio" style="display: none" />
+      <img id="baggio" src="images/baggio.png" alt="Roberto Baggio" style="display: none" />
+      <img id="best" src="images/best.png" alt="George Best" style="display: none" />
+      <img id="baresi" src="images/baresi.png" alt="Franco Baresi" style="display: none" />
+      <img id="charlton" src="images/charlton.png" alt="Sir Bobby Charlton" style="display: none" />
+      <img id="muller" src="images/muller.png" alt="Gerd Muller" style="display: none" />
+      <img id="puskas" src="images/puskas.png" alt="Ferenc Puskas" style="display: none" />
+      <img id="xavi" src="images/xavi.png" alt="Xavi" style="display: none" />
+      <img id="drogba" src="images/drogba.png" alt="Didier Drogba" style="display: none" />
+      <img id="cantona" src="images/cantona.png" alt="Eric Cantona" style="display: none" />
+      <img id="socrates" src="images/socrates.png" alt="Socrates" style="display: none" />
+      <img id="lahm" src="images/lahm.png" alt="Phillip Lahm" style="display: none" />
+      <img id="lineker" src="images/lineker.png" alt="Gary Lineker" style="display: none" />
+      <img id="zanetti" src="images/zanetti.png" alt="Javier Zanetti" style="display: none" />
+      <img id="nesta" src="images/nesta.png" alt="Alessandro Nesta" style="display: none" />
+      <img id="sanchez" src="images/sanchez.png" alt="Hugo Sanchez" style="display: none" />
+      <img id="shearer" src="images/shearer.png" alt="Alan Shearer" style="display: none" />
+      <img id="laudrup" src="images/laudrup.png" alt="Michael Laudrup" style="display: none" />
+      <img id="shevchenko" src="images/shevchenko.png" alt="Andriy Shevchenko" style="display: none" />
+      <img id="viera" src="images/viera.png" alt="Patrick Vieira" style="display: none" />
+      <img id="van-persie" src="images/van-persie.png" alt="Robin Van Persie" style="display: none" />
+      <img id="desailly" src="images/desailly.png" alt="Marcel Desailly" style="display: none" />
+      <img id="klose" src="images/klose.png" alt="Miroslav Klose" style="display: none" />
+      <img id="hagi" src="images/hagi.png" alt="Gheorghe Hagi" style="display: none" />
+      <img id="wright" src="images/wright.png" alt="Ian Wright" style="display: none" />
+      <img id="pires" src="images/pires.png" alt="Robert Pires" style="display: none" />
+      <img id="rijkaard" src="images/rijkaard.png" alt="Frank Rijkaard" style="display: none" />
+      <img id="vidic" src="images/vidic.png" alt="Nemanja Vidic" style="display: none" />
+      <img id="alonso" src="images/alonso.png" alt="Xabi Alonso" style="display: none" />
+      <img id="petit" src="images/petit.png" alt="Emmanuel Petit" style="display: none" />
+      <img id="veron" src="images/veron.png" alt="Juan Sebastian Veron" style="display: none" />
+      <img id="cole" src="images/cole.png" alt="Ashley Cole" style="display: none" />
+      <img id="essien" src="images/essien.png" alt="Michael Essien" style="display: none" />
+      <img id="larsson" src="images/larsson.png" alt="Henrik Larsson" style="display: none" />
+      <img id="crespo" src="images/crespo.png" alt="Hernan Crespo" style="display: none" />
+      <img id="torres" src="images/torres.png" alt="Fernando Torres" style="display: none" />
+      <img id="suker" src="images/suker.png" alt="Davor Suker" style="display: none" />
+      <img id="kluivert" src="images/kluivert.png" alt="Patrick Kluivert" style="display: none" />
+      <img id="makelele" src="images/makelele.png" alt="Claude Makelele" style="display: none" />
+      <img id="barnes" src="images/barnes.png" alt="John Barnes" style="display: none" />
+      <img id="lampard" src="images/lampard.png" alt="Frank Lampard" style="display: none" />
+      <img id="gerrard" src="images/gerrard.png" alt="Steven Gerrard" style="display: none" />
+      <img id="koeman" src="images/koeman.png" alt="Ronaldo Koeman" style="display: none" />
+      <img id="scholes" src="images/scholes.png" alt="Paul Scholes" style="display: none" />
+      <img id="rooney" src="images/rooney.png" alt="Wayne Rooney" style="display: none" />
+      <img id="schweinsteiger" src="images/schweinsteiger.png" alt="Bastian Schweinsteiger" style="display: none" />
+      <img id="ferdinand" src="images/ferdinand.png" alt="Rio Ferdinand" style="display: none" />
+      <img id="blanc" src="images/blanc.png" alt="Laurent Blanc" style="display: none" />
+      <img id="zambrotta" src="images/zambrotta.png" alt="Zambrotta" style="display: none" />
+      <img id="goatmessi" src="images/GOATM.png" alt="GOAT Messi" style="display: none"/> 
+      <img id="goatronaldo" src="images/GOATR.png" alt="GOAT Ronaldo" style="display: none"/> 
+      <img id="yamal99" src="images/yamal99.png" alt="GOAT Yamal" style="display: none"/> 
+      <img id="raphinha99" src="images/raphinha99.png" alt="GOAT Raphinha" style="display: none"/> 
+      <img id="antony99" src="images/antony99.png" alt="GOAT Antony" style="display: none"/> 
+    <img id="hawkjamal" src="images/hawkjamal.png" alt="Beanings Star" style="display: none"/>
+      <img id="fillyfiddler" src="images/fillyfiddler.png" alt="Beanings Star" style="display: none"/>
+      <img id="davidspectrum" src="images/davidspectrum.png" alt="Beanings Star" style="display: none"/>
+      <img id="talktuah" src="images/talktuah.png" alt="Beanings Star" style="display: none"/>
+      <img id="clarksnort" src="images/clarksnort.png" alt="Beanings Star" style="display: none"/>
+      <img id="youngman" src="images/sumyoungman.png" alt="Beanings Star" style="display: none"/>
+      <img id="dev" src="images/thedeveloper.png" alt="The Developer" style="display: none"/>
+        <img id="chanheeicon" src="images/chanheeicon.png" alt="School Football Goat" style="display: none"/>
+        <img id="noah" src="images/noah.png" alt="School Football Goat" style="display: none"/>
+        <img id="trafficcone" src="images/traffic.png" alt="School football Goat" style="display: none"/>
+        <img id="duo" src="images/dynamic.png" alt="School Football" style="display: none"/>
+        <img id="buffet" src="images/buffet.png" alt="School Football" style="display: none"/>
+        <img id="archie" src="images/archie.png" alt="School Football" style="display: none"/>
+
+    </div>
+    <!-- Floating Inventory Button -->
+    <button id="inventoryButton" class="floating-inventory">Inventory</button>
+    <!-- Inventory Section -->
+    <div id="inventorySection" class="inventory-section hidden">
+      <h2>Inventory</h2>
+      <div id="inventory" class="inventory"></div>
+      <button id="backinventory">Back</button>
+    </div>
+
+    <script src="beanings.js"></script>
+    <script>
+      document
+        .getElementById("backToPacks")
+        .addEventListener("click", function () {
+          window.location.href = "packs.html"; // Link to pack opener page
+        });
+    </script>
+
+    <button id="credits">Credits</button> 
+
+    <script>
+      document.getElementById("credits").addEventListener("click", function () {
+        window.location.href = "credits.html"; // Link to pack opener page
+      });
+      document.getElementById("backinventory").addEventListener("click", function () {
+        window.location.href = "beanings.html"; // Link to pack opener page
+      });
+    </script>
+  </body>
+</html>

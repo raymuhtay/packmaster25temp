@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="images/pack master 25.png" type="image/x-icon"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pack Master 25</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+      body {
+        color: gold;
+        font-size: 20px;
+        font-family: "Oswald", system-ui;
+        font-weight: 700;
+      }
+      h1 {
+        color: white;
+      }</style>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="inner">
+        <div class="packalignContainer">
+          <h1>Select Pack</h1>
+        </div>
+        <div class="coinBalance"></div>
+        <div class="packs">
+        <button id="legendaryPackButton">
+          Buy Legendary Pack (Costs 250,000 Coins, Contains Icon Cards)
+        </button>
+        <button id="GoldPackButton">
+          Buy Gold Pack (Costs 2,500 Coins, Contains Gold Cards)
+        </button>
+        <button id="PromoPackButton">
+          Buy Special Pack (Costs 50,000 Coins, Contains Special Cards)
+        </button>
+      <button id="beaningsPackButton">
+          Buy Beanings Pack (Costs 7,500000 Coins, Contains Beanings/Bronze Cards)
+        </button>
+        <button id="schoolPackButton">
+          Buy School Football Pack (Costs 10,00000 Coins, Contains School Football Cards)
+        </button>
+      </div>
+      <div>
+        <button id="backToPacks">Back</button>
+      </div>
+    <button id="restartButton" class="btn">Restart Game</button>
+    <button id="credits">Credits</button>
+  </div>
+
+  </body>
+
+  
+
+  <script>
+    // Variables for coin system
+let coins = localStorage.getItem("coins")
+  ? parseInt(localStorage.getItem("coins"))
+  : 20000; // Load coins from local storage or start with 10,000
+    document.getElementById("credits").addEventListener("click", function () {
+      window.location.href = "credits.html"; // Link to pack opener page
+    });
+   // Update coin balance display
+function updateCoinBalance() {
+  document.querySelectorAll(".coinBalance").forEach((element) => {
+    element.textContent = `Coins: ${coins}`;
+  });
+  localStorage.setItem("coins", coins); // Save coins to local storage
+}
+    document
+      .getElementById("GoldPackButton")
+      .addEventListener("click", function () {
+        window.location.href = "goldpack.html"; // Link to pack opener page
+      });
+    document
+      .getElementById("PromoPackButton")
+      .addEventListener("click", function () {
+        window.location.href = "specialpack.html"; // Link to pack opener page
+      });
+    document
+      .getElementById("legendaryPackButton")
+      .addEventListener("click", function () {
+        window.location.href = "legendarypack.html"; // Link to pack opener page
+      });
+   document
+      .getElementById("beaningsPackButton")
+      .addEventListener("click", function () {
+        window.location.href = "beanings.html"; // Link to pack opener page
+      });
+      document
+      .getElementById("schoolPackButton")
+      .addEventListener("click", function () {
+        window.location.href = "school.html"; // Link to pack opener page
+      });
+      document
+      .getElementById("backToPacks")
+      .addEventListener("click", function () {
+        window.location.href = "index.html"; // Link to pack opener page
+      });
+      function resetGame() {
+  localStorage.clear();
+  location.reload();
+}
+document
+  .getElementById("restartButton")
+  .addEventListener("click", resetGame);
+  document.addEventListener("DOMContentLoaded", updateCoinBalance);
+ </script>
+</html>

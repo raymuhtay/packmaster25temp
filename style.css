@@ -1,0 +1,867 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+body {
+  font-family: "Oswald", sans-serif;
+  margin: 0;
+  background-color: #ffffff;
+  background-image: url("images/Menu Background.png");
+  background-size: cover;
+  color: #ffffff;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+.pack-results {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Using a CSS variable to control the card size */
+:root {
+  --card-width: 250px; /* Default card size */
+}
+
+.player-card {
+  width: var(--card-width); /* Set card width using the CSS variable */
+  margin: 10px;
+  text-align: center;
+  display: inline-block;
+}
+
+.player-card img {
+  width: 100%; /* Image will take full width of the card */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.player-card p {
+  margin-top: 5px;
+  font-size: 14px; /* Adjust font size if needed */
+  color: #000;
+}
+
+/* Adjust container for displaying the cards under the button */
+#currentPlayer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Center button container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Floating Inventory Button */
+.floating-inventory {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Floating Inventory Button */
+.floating-inventory {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Inventory Section */
+.inventory-section {
+  display: none; /* Hidden by default */
+  position: top; /* Overlay it over the current page */
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 10; /* Ensure it's above other content */
+  padding: 20px;
+  background-color: #f4f4f4;
+  background-image: url("images/inventoryBG.jpg");
+  background-size: cover;
+  display: flex;
+}
+.inventory {
+  background-color: #f4f4f4;
+  background-image: url("images/inventoryBG.jpg");
+  background-size: cover;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center; /* This ensures it's centered vertically */
+  margin: 0 auto; /* Ensures it's centered horizontally */
+  min-height: 100vh; /* Ensures the container takes up full height */
+}
+
+#packImage {
+  margin-top: 20px;
+  max-width: 100%; /* Keeps it responsive */
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* Ensures horizontal centering */
+}
+
+#TOTYpackImage {
+  margin-top: 20px;
+  max-width: 100%; /* Keeps it responsive */
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* Ensures horizontal centering */
+}
+
+/* Button styling */
+#openPackButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #e9d03f;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#openPackButton:hover {
+  background-color: #cedc13;
+}
+
+/* Pack results and cards display */
+.pack-results,
+.current-player {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Card layout for players */
+.current-player .player-card {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+/* Style for the duplicate label */
+.duplicate-label {
+  display: block;
+  background-color: red;
+  color: white;
+  padding: 2px 5px;
+  margin-top: 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+/* Reduce opacity for duplicate cards */
+.player-card.duplicate {
+  opacity: 0.5;
+}
+
+/* Container for the buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* Adjust this value to control how close the buttons are to the player cards */
+}
+
+/* Continue and Send to Inventory buttons */
+#continueButton,
+#sendToInventoryButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #d8bb37; /* Button background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-right: auto;
+  transition: background-color 0.3s ease;
+}
+#sendToInventory {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #d8bb37; /* Button background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-right: auto;
+  transition: background-color 0.3s ease;
+}
+#continueButton:hover,
+#sendToInventoryButton:hover {
+  background-color: #ba9906; /* Darker shade on hover */
+}
+
+.coin-balance {
+  font-size: 20px;
+  margin-bottom: 56px;
+  color: gold;
+  font-weight: bold;
+}
+
+.quick-sell-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #ff5722; /* Color for quick sell button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.quick-sell-button:hover {
+  background-color: #e64a19;
+}
+
+/* Warning message for duplicates */
+.warning {
+  background-color: #ffcccc;
+  color: #d8000c;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.quick-sell-inventory-button,
+.quick-sell-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #ff5722; /* Color for quick sell button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.quick-sell-button:hover {
+  background-color: #e64a19;
+}
+
+
+.quick-sell-inventory-button:hover {
+  background-color: #e64a19;
+}
+
+.inventory-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-image: url ("images/1340342.jpeg");
+}
+
+.inventory {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto; /* Allows vertical scrolling if needed */
+  padding: 20px;
+  max-height: 70%; /* Adjust as needed */
+  gap: 10px; /* Space between cards */
+  justify-content: center; /* Center the cards */
+}
+
+.card {
+  width: 150px;
+  height: 200px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Ensures cards are responsive and fit within the container */
+@media (min-width: 1024px) {
+  .card {
+    flex: 1 0 calc(16.66% - 10px); /* 6 cards per row, minus gap */
+  }
+}
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 0 calc(33.33% - 10px); /* Adjust for smaller screens if needed */
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    flex: 1 0 calc(50% - 10px); /* Adjust for mobile screens */
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.inventory-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.inventory-card img {
+  width: 100px;
+  height: 100px;
+}
+
+.inventory-card p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* Container for centering pack image and button */
+.container {
+  text-align: center; /* Center align text and inline elements */
+  margin: 0 auto; /* Center container */
+  padding: 20px;
+}
+
+#packContainer {
+  display: inline-block; /* Keeps pack image and button in line */
+  position: relative; /* Allows positioning of children elements */
+  text-align: center;
+}
+
+#packImage {
+  display: block; /* Ensures pack image is displayed as a block */
+  margin: 0 auto; /* Centers the pack image */
+}
+
+#openPackButton {
+  display: block; /* Makes button a block element */
+  margin: 20px auto 0; /* Centers the button and adds spacing above */
+  padding: 10px 20px; /* Adds padding to the button */
+  background-color: #d8bb37; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+#buttonsContainer {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  margin-top: 20px; /* Space above buttons */
+}
+
+#continueButton,
+#sendToInventoryButton {
+  margin: 0 10px; /* Space between buttons */
+  padding: 10px 20px; /* Padding inside buttons */
+  background-color: #d8bb37; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+#continueButton:hover,
+#sendToInventoryButton:hover {
+  background-color: #ba9906; /* Darker shade on hover */
+}
+
+/* style.css */
+.inventory-button {
+  background-color: #f0c14b;
+  border: 2px solid #a88734;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.inventory-button:hover {
+  background-color: #ddb347;
+}
+
+#packOpenerButton {
+  text-align: center;
+  background-image: url("images/packsfix2.png");
+  width: 480px;
+  height: 210px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+#legendaryPackButton {
+  text-align: left;
+  background-color: #d33754; /* Button background color */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px auto; /* Center align with auto margins */
+  cursor: pointer;
+  border-radius: 5px;
+  height: 150px;
+  width: 250px;
+}
+#UCLKPackButton {
+  text-align: left;
+  background-color: #d33754; /* Button background color */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px auto; /* Center align with auto margins */
+  cursor: pointer;
+  border-radius: 5px;
+  height: 150px;
+  width: 250px;
+}
+#UCLKPackButton:hover {
+  background-color: #e1294b; /* Button background color */
+}
+#legendaryPackButton:hover {
+  background-color: #e1294b; /* Button background color */
+}
+
+#beaningsPackButton {
+  text-align: left;
+  background-color: #d33754; /* Button background color */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px auto; /* Center align with auto margins */
+  cursor: pointer;
+  border-radius: 5px;
+  height: 150px;
+  width: 250px;
+}
+
+#beaningsPackButton:hover {
+    background-color: #e1294b; /* Button background color */
+}
+
+#schoolPackButton {
+  text-align: left;
+  background-color: #d33754; /* Button background color */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px auto; /* Center align with auto margins */
+  cursor: pointer;
+  border-radius: 5px;
+  height: 150px;
+  width: 250px;
+}
+
+#schoolPackButton:hover {
+  background-color: #e1294b; /* Button background color */
+
+}
+
+#PromoPackButton {
+  text-align: left;
+  background-color: #d33754; /* Button background color */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px auto; /* Center align with auto margins */
+  cursor: pointer;
+  border-radius: 5px;
+  height: 150px;
+  width: 250px;
+}
+
+#PromoPackButton:hover {
+  background-color: #e1294b; /* Button background color */
+}
+
+#backToPacks {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #d33754; /* Button background color */
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  position: fixed;
+  top: 1em;
+  left: 1em;
+}
+
+#backToPacks:hover {
+  background-color: #e1294b; /* Button background color */
+}
+.btn {
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #d33754; /* Button background color */
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+} 
+
+.btn:hover {
+  background-color: #e1294b; /* Button background color */
+}
+
+#backinventory {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #d33754; /* Button background color */
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  position: fixed;
+  top: 1em;
+  left: 1em;
+}
+#backinventory:hover {
+  background-color: #e1294b; /* Button background color */
+}
+
+#restartButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  top: 1em;
+  right: 1em;
+  position: fixed;
+}
+
+/* General body styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center; /* Center align text and buttons */
+  margin: 0;
+  padding: 0;
+}
+
+/* Title styles */
+h1 {
+  margin-top: 50px; /* Add space at the top */
+  font-size: 24px;
+  font-family: "Oswald", system-ui;
+  font-weight: 700;
+}
+
+/* Pack Button styles */
+.pack-button {
+  background-color: #4caf50; /* Green background */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px auto; /* Center align with auto margins */
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Inventory Button styles */
+.inventory-button {
+  background-color: #f0c14b; /* Light yellow background */
+  border: 2px solid #a88734; /* Darker yellow border */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Coin balance */
+#coinBalance {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#continueButton,
+#sendToInventoryButton,
+#inventoryButton,
+#goBackButton,
+#returnHomeButton,
+#goBack1Button,
+#goBack2Button {
+  background-color: #dc3545; /* Button color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+  cursor: pointer; /* Change cursor on hover */
+}
+#continueButton,
+#sendToInventoryButton,
+#goBackButton,
+#returnHomeButton,
+#goBack1Button,
+#goBack2Button {
+  background-color: #e1294b;
+}
+
+#inventoryButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: #dc3545; /* Button background color */
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+}
+
+#inventoryButton:hover {
+  background-color: #e1294b; /* Button background color 
+}
+
+
+
+#packSection {
+  text-align: center; /* Center the content */
+  margin: 20px; /* Add some margin around the section */
+}
+
+#packText {
+  font-size: 18px; /* Adjust font size as needed */
+  margin-bottom: 10px; /* Add some space between text and button */
+}
+.packs {
+  position: center
+}
+#open92PackButton {
+  background-color: #dc3545; /* Button color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+#open92PackButton:hover {
+  background-color: #c82333; /* Darker color on hover */
+}
+#open1PackButton {
+  background-color: #dc3545; /* Button color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+#openbeanPackButton {
+  background-color: rgb(34, 181, 34); /* Button color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+#openbeanPackButton:hover {
+background-color:rgb(32, 135, 32)
+}
+
+#opensPackButton {
+  background-color: #dc3545; /* Button color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+#opensPackButton:hover {
+  background-color: #c82333; /* Darker color on hover */
+}
+
+#open1PackButton:hover {
+  background-color: #c82333; /* Darker color on hover */
+}
+@media (max-width: 768px) {
+  #packText {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  #open92PackButton {
+    font-size: 14px; /* Adjust button font size */
+    padding: 8px 16px; /* Adjust padding */
+  }
+}
+
+@keyframes fadeInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px); /* Start from 100px below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+.fade-in-bottom {
+  animation: fadeInFromBottom 3s ease-out;
+}
+
+/* CSS for the Duplicate Badge */
+.duplicate-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10;
+  display: none; /* Initially hidden */
+}
+
+#packsalignContainer {
+  display: flex;
+}
+
+#GoldPackButton {
+  text-align: left;
+  background-color: #d33754; /* Button background color */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px auto; /* Center align with auto margins */
+  cursor: pointer;
+  border-radius: 5px;
+  height: 150px;
+  width: 250px;
+}
+#GoldPackButton:hover {
+  background-color: #c82333; /* Darker color on hover */
+}
+
+/* Title styles */
+h2 {
+  margin-top: 50px; /* Add space at the top */
+  font-size: 24px;
+  font-family: "Oswald", system-ui;
+  font-weight: 700;
+}
+
+#credits {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #d33754; /* Button background color */
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+}
+
+#credits:hover {
+  background-color: #c82333; /* Darker color on hover */
+}
+
+#openUCLKPackButton {
+  background-color: #dc3545; /* Button color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+  cursor: pointer; /* Change cursor on hover */
+}
+#openUCLKPackButton:hover {
+  background-color: #c82333; /* Darker color on hover */
+}
+
+/* Style for the duplicate overlay */
+.duplicate-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg); /* Positioned diagonally */
+  color: red;
+  font-size: 30px; /* Adjust as needed */
+  font-weight: bold;
+  z-index: 10; /* Ensure it's on top of the player card */
+  pointer-events: none; /* Prevent interaction */
+}
+
+/* Reduced opacity for duplicate player cards */
+.duplicate-opacity {
+  opacity: 0.5; /* Fades the entire player card to 50% opacity */
+  position: relative;
+}
+
+  
